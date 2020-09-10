@@ -1,4 +1,4 @@
-Resolução das questões do exercicio I de LP1 *(16/09/2020)*. 
+# Resolução das questões do exercicio I de LP1 (16/09/2020). 
 
 Fiz a segunda questão de duas maneiras.
 Exercicio1.2: Utilizando um operador ternário '?'.
