@@ -10,7 +10,8 @@ int main()
     int numero;
     scanf("%d", &numero);
 
-    printf("O numero lido foi %f", numero);
+    printf("\nO numero lido foi %f", numero);
+    //não exibe um valor :/
 
 return 0;
 }

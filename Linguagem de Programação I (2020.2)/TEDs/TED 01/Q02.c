@@ -5,10 +5,10 @@
 
 int main()
 {
-    float numero;
+    int numero;
     printf("Digite um numero:\n");
-    scanf("%f", &numero);
+    scanf("%d", &numero);
 
-    printf("\nO numero digitado foi %.2f", numero);
+    printf("\nO numero digitado foi %d", numero);
     return 0;
 }
