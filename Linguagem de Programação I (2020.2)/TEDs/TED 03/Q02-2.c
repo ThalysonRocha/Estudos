@@ -8,7 +8,7 @@ int main()
     int i=1, x;
     float result;
 
-    printf("Para qual valor voce deseja calcular a serie harmonica ? \n");
+    printf("For what value do you want to calculate the harmonic series ? \n");
     scanf("%d", &x);
 
     while (i <= x)
@@ -18,7 +18,7 @@ int main()
     }
     
 
-    printf("\nO resultado e %.5f", result);
+    printf("\nThe result is %.5f", result);
 
     return 0;
 }
