@@ -8,15 +8,15 @@ anos serão necessários para que Zé seja maior que Chico.*/
 int main()
 {
     float chico = 1.50, ze = 1.10;
-    int anos;
+    int years;
 
-    for( ; ze < chico; anos++)
+    for( ; ze < chico; years++)
     {
         ze = ze + 0.03;
         chico = chico + 0.02;
     }
 
-    printf("\nPara Ze ficar maior que Chico serao necessarios %d anos", anos);
+    printf("\nTo Ze become taller than Chico will be necessary %d years", years);
 
     return 0;
 }
