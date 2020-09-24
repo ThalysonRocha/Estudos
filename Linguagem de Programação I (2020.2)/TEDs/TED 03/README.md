@@ -12,3 +12,5 @@ ArquivoX-n (enésima solução).
 
 - As soluções propostas baseiam-se no andamento da disciplina e conhecimento adiquiridos até o momento da elaboração, devido a isso podem haver erros e/ou ineficiências.
 Ninguem nasce sabendo de tudo....
+
+- IDE -> Visual Studio Code / SO -> Windowns 10.
