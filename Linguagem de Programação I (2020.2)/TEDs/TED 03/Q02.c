@@ -8,10 +8,7 @@ Então, ao definir n com o valor inteiro 10 o resultado de h será 2,92896825396
 
 int main()
 {
-    int i, x;
-    float result;
-
-    printf("Para qual valor voce deseja calcular a serie harmonica ? \n");
+    printf("For what value do you want to calculate the harmonic series ? \n");
     scanf("%d", &x);
 
     for(i = 1 ; i <= x ; i++)
@@ -19,14 +16,7 @@ int main()
         result = result + (1.0 / i);
     }
 
-    /*while (i < x)
-    {
-        i++;
-        result = result + 1 / i;
-    }*/
-    
-
-    printf("\nO resultado e %.5f", result);
+    printf("\nThe result is %.5f", result);
 
     return 0;
 }
