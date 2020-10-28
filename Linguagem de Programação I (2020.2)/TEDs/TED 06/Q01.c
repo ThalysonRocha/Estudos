@@ -35,14 +35,19 @@ double sacar()
     _sleep(2000); //pausa o programa por dois segundos.
     
     //Confere se é possivel realizar o saque sem retirar todo o dinheiro da conta
-    if (valor > saldo) printf("Voce nao possui este valor disponivel para saque.");
-    else               printf("\n\nPronto, retire o dinheiro no local indicado com uma seta verde.");
-    
-    saldo = saldo - valor;
-    extrato[pos] = valor * -1;
-    pos++;
-    taxa = taxa + 2;
-    return saldo, pos, taxa;
+    if (valor > saldo){
+        printf("\nVoce nao possui este valor disponivel para saque.");
+        return 0;
+    }
+
+    else{
+        printf("\n\nPronto, retire o dinheiro no local indicado com uma seta verde.");
+        saldo = saldo - valor;
+        extrato[pos] = valor * -1;
+        pos++;
+        taxa = taxa + 2;
+        return saldo, pos, taxa;
+    }
 }
 
 char operacao()
