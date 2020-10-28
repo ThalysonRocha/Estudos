@@ -63,7 +63,7 @@ int main()
 {
     printf("SEJA BEM VINDO !\n\n");
     
-    printf("\n\nInsira seu cartao.");
+    printf("\nInsira seu cartao.\n\n");
 
     while (novamente == 1)
     {
