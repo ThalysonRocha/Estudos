@@ -64,6 +64,7 @@ int main()
     printf("SEJA BEM VINDO !\n\n");
     
     printf("\nInsira seu cartao.\n\n");
+    _sleep(1500);//Aguarda a "inserção do cartão". (1,5s) 
 
     while (novamente == 1)
     {
