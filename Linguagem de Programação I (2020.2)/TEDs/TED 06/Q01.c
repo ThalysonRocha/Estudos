@@ -62,6 +62,8 @@ char operacao()
 int main()
 {
     printf("SEJA BEM VINDO !\n\n");
+    
+    printf("\n\nInsira seu cartao.");
 
     while (novamente == 1)
     {
