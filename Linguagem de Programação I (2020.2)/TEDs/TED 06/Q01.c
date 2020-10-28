@@ -16,14 +16,25 @@ double depositar()
     printf("\nDigite quanto deseja depositar:");
     printf("\nR$ ");
     scanf("%lf", &valor);
-    printf("\nInsira o envelope.");
-    _sleep(2000);
-    printf("\n\nPronto, o valor ja foi adicionado a sua conta !");   
 
-    saldo = saldo + valor;
-    extrato[pos] = valor;
-    pos++;
-    return saldo, pos;
+    if (valor == 0){
+        printf("\nComo assim ? Tu quer depositar um envelope vazio !? Eu acho que isso eh crime... \nDevo chamar a policia ?");
+        return 0;
+    }
+    else if(valor < 0){
+        printf("\nAmigao, nao existe deposito negativo, o nome disso eh SAQUE, eh outra opcao, escolhe direitinho ai vai.");
+        return 0;
+    }  
+    else{
+        printf("\nInsira o envelope.");
+        _sleep(2000);
+        printf("\n\nPronto, o valor ja foi adicionado a sua conta !");   
+
+        saldo = saldo + valor;
+        extrato[pos] = valor;
+        pos++;
+        return saldo, pos;
+    }  
 }
 
 double sacar()
@@ -33,13 +44,16 @@ double sacar()
     scanf("%lf", &valor);
     printf("Aguarde um instante....");
     _sleep(2000); //pausa o programa por dois segundos.
-    
+
     //Confere se é possivel realizar o saque sem retirar todo o dinheiro da conta
-    if (valor > saldo){
-        printf("\nVoce nao possui este valor disponivel para saque.");
+    if (valor == 0){
+        printf("\n\nComo assim tu quer sacar R$ 0,00 ? Nao existe isso ne abencoado");
         return 0;
     }
-
+    else if (valor > saldo){
+        printf("\nVoce nao possui este valor disponivel para saque.");
+        return 0;
+    }   
     else{
         printf("\n\nPronto, retire o dinheiro no local indicado com uma seta verde.");
         saldo = saldo - valor;
