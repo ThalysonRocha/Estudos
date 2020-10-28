@@ -33,8 +33,11 @@ double sacar()
     scanf("%lf", &valor);
     printf("Aguarde um instante....");
     _sleep(2000); //pausa o programa por dois segundos.
-    printf("\n\nPronto, retire o dinheiro no local indicado com uma seta verde.");
-
+    
+    //Confere se é possivel realizar o saque sem retirar todo o dinheiro da conta
+    if (valor > saldo) printf("Voce nao possui este valor disponivel para saque.");
+    else               printf("\n\nPronto, retire o dinheiro no local indicado com uma seta verde.");
+    
     saldo = saldo - valor;
     extrato[pos] = valor * -1;
     pos++;
