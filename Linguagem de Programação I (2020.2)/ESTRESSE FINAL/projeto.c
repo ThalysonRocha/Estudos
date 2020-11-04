@@ -4,8 +4,9 @@
 #include <ctype.h>
 
 int logado = 0;
-int qnt_obra, OPCAO;
-double ORCAMENTO, CAIXA;
+int qnt_obra, OPCAO, i;
+double ORCAMENTO, CAIXA, DESPESAS;
+char historico[999][140], mensagens[999][140];
 
 void login()
 {   
@@ -46,41 +47,64 @@ void login()
     return logado;
 }
 
-void novaobra()
-{   
-    
-    printf("Qual o orÁamento da nova obra ?"
-    "R$ :");
-    scanf("%lf", &ORCAMENTO);
+int gestor ()
+{
+  while(OPCAO != 0){
+    printf("\nO que deseja fazer ?\n"
+    "\nDigite a op√ß√£o correspondente:"
+    "\n1 - Solicitar Nova Obra."
+    "\n2 - Verificar custo da obra."
+    "\n3 - Consultar hist√≥rico da obra."
+    "\n0 - SAIR"
+    "\nOPCAO: ");
+    scanf("%d", &OPCAO);
 
-    qnt_obra = 1;
+    switch (OPCAO)
+    {
+    case 1:
+      printf("\n\nUma nova obra foi adicionada, por favor, digite o or√ßamento disponivel para esta nova obra" 
+      "\nR$: ");
+      scanf("%lf", &ORCAMENTO);
+      qnt_obra = 1;
+      break;
+
+    case 2:
+      printf("\n\nO or√ßamento inicial para esta obra foi de R$ %.2lf\n", ORCAMENTO);
+      printf("\nAte este momento foram gastos R$ %.2lf\n", DESPESAS);
+      printf("\nAinda restam R$ %.2lf\n", CAIXA);
+      break;
+    
+    case  3:
+      for (i = 0; i < 999; i++);{
+        printf("\n%s", historico[i]);
+      }
+      break;
+
+    default:
+      printf("\nVoce nao selecionou nenhuma opcao, atendimento encerrado.");
+      OPCAO = 0;
+    
+    return qnt_obra, ORCAMENTO;
+    }
+  }
 
 }
 
 int main()
 {
-    printf("===PROGRAMA DE LOGIN===\n");
+  printf("===PROGRAMA DE LOGIN===\n");
 
-    login();
+  login();
 
-    switch (logado)
-    {
-    case 1:
-        printf("O que deseja fazer ?\n"
-        "\nDigite a opÁ„o correspondente:"
-        "\n1 - Solicitar Nova Obra."
-        "\n2 - Verificar custo da obra."
-        "\n3 - Consultar histÛrico da obra.");
-        scanf("%d", &OPCAO);
+  switch (logado)
+  {
+  case 1:
+    printf("Seja bem vindo GESTOR");
+    gestor();
+    break;
+  }
 
-        
-        break;
-    
-   
+  printf("\n\nFIM");
 
-    }
-
-    printf("\n\nFIM");
-
-    return 0;
+  return 0;
 }
