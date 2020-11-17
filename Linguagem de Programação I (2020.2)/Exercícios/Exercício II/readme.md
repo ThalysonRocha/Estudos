@@ -1,4 +1,4 @@
-# Exercicio II - (28/10/2020)
+# Exercicio II - (11/11/2020)
  
 As soluções propostas nesses arquivos, foram elaborados para o exercicio proposto na aula do dia 11/11/2020, disciplina de Linguagem de Programação I, UNIESP 2020.2.
 
