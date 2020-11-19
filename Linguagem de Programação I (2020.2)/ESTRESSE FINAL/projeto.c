@@ -51,10 +51,10 @@ int gestor ()
 {
   while(OPCAO != 0){
     printf("\nO que deseja fazer ?\n"
-    "\nDigite a opÃ§Ã£o correspondente:"
+    "\nDigite a opção correspondente:"
     "\n1 - Solicitar Nova Obra."
     "\n2 - Verificar custo da obra."
-    "\n3 - Consultar histÃ³rico da obra."
+    "\n3 - Consultar histórico da obra."
     "\n0 - SAIR"
     "\nOPCAO: ");
     scanf("%d", &OPCAO);
@@ -62,14 +62,14 @@ int gestor ()
     switch (OPCAO)
     {
     case 1:
-      printf("\n\nUma nova obra foi adicionada, por favor, digite o orÃ§amento disponivel para esta nova obra" 
+      printf("\n\nUma nova obra foi adicionada, por favor, digite o orçamento disponivel para esta nova obra" 
       "\nR$: ");
       scanf("%lf", &ORCAMENTO);
       qnt_obra = 1;
       break;
 
     case 2:
-      printf("\n\nO orÃ§amento inicial para esta obra foi de R$ %.2lf\n", ORCAMENTO);
+      printf("\n\nO orçamento inicial para esta obra foi de R$ %.2lf\n", ORCAMENTO);
       printf("\nAte este momento foram gastos R$ %.2lf\n", DESPESAS);
       printf("\nAinda restam R$ %.2lf\n", CAIXA);
       break;
@@ -90,6 +90,48 @@ int gestor ()
 
 }
 
+int mestre()
+{
+  while(OPCAO != 0){
+    printf("O que deseja fazer ?\n"
+    "\nDigite a opção correspondente:"
+    "\n1 - Solicitar a compra de um produto."
+    "\n2 - Confirmar recebimento da compra."
+    "\n3 - Listar compras efetuadas."
+    "\n4 - Solicitar a contratação de um funcionário.");
+    scanf("%d", &OPCAO);
+  }
+
+}
+
+int engenheiro()
+{
+  while(OPCAO != 0){
+    printf("O que deseja fazer ?\n"
+    "\nDigite a opção correspondente:"
+    "\n1 - Iniciar obra."
+    "\n2 - Contratar funcionários."
+    "\n3 - Verificar Custa da obra."
+    "\n4 - Selecionar fornecedor e finalizar compra."
+    "\n5 - Adicionar mensagem ao histórico da obra.");
+    scanf("%d", &OPCAO);
+  }
+
+}
+
+int fornecedor()
+{
+  while(OPCAO != 0){
+    printf("O que deseja fazer ?\n"
+    "\nDigite a opção correspondente:"
+    "\n1 - Visualizar solicitações de compra."
+    "\n2 - Adicionar valor de três fornecedores.");
+    scanf("%d", &OPCAO);
+  }    
+
+}
+
+
 int main()
 {
   printf("===PROGRAMA DE LOGIN===\n");
@@ -102,7 +144,22 @@ int main()
     printf("Seja bem vindo GESTOR");
     gestor();
     break;
-  }
+  
+  case 2:
+    printf("Seja bem vindo ENGENHEIRO");
+    engenheiro();
+    break;
+  
+  case 3:
+    printf("Seja bem vindo MESTRE DE OBRAS");
+    mestre();
+    break;
+  
+  case 4:
+    printf("Seja bem vindo FORNECEDOR");
+    fornecedor();
+    break;
+  
 
   printf("\n\nFIM");
 
