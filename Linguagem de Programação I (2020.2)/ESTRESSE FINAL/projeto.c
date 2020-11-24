@@ -14,16 +14,19 @@ int qnt_obra, OPCAO = 1, i, codigobra=1;
 double ORCAMENTO, CAIXA, DESPESAS;
 char historico[999][140], mensagens[999][140];
 
-void login()
+int login()
 {   
   char login[20], senha[6]; 
-  char id[4][15] = {"gestor", "engenheiro", "MESTRE", "FORNECEDOR"}, senhas[4][10] = {"111", "222", "333", "444"};
+  char id[4][15] = {"gestor\n", "engenheiro", "MESTRE", "FORNECEDOR"}, senhas[4][10] = {"111\n", "222", "333", "444"};
 
   do{  
     printf("\nLOGIN: ");
-    gets(login);
+    fgets(login, 20, stdin);
+    fflush(stdin);
+
     printf("SENHA: ");
-    gets(senha);
+    fgets(senha, 6, stdin);
+    fflush(stdin);
 
     
     if ((strcmp(login, id[0]) == 0) && (strcmp(senha, senhas[0]) == 0)){
@@ -55,28 +58,29 @@ void login()
 
 char nomeobra()
 {   
-    fflush(stdin);
-    printf("\n\nPor favor digite o nome da obra: \n");
-    fgets(obras[codigobra].nome, 20, stdin);
+  fflush(stdin);
+  printf("\n\nPor favor digite o nome da obra: \n");
+  fgets(obras[codigobra].nome, 20, stdin);
 
-    return obras[codigobra].nome[19];
+  return obras[codigobra].nome[19];
 }
 
 double orcamentoobra(){
 
-    printf("\n\nAgora informe o orcamento disponivel para esta nova obra" 
-    "\nR$: ");
-    scanf("%lf", &obras[codigobra].orcamento);
+  printf("\n\nAgora informe o orcamento disponivel para esta nova obra" 
+  "\nR$: ");
+  scanf("%lf", &obras[codigobra].orcamento);
 
-    system("cls");
-    printf("\nUma nova obra foi adicionada\n");
+  system("cls");
+  printf("\nUma nova obra foi adicionada\n");
     
-    return obras[codigobra].orcamento;
-    codigobra++;
+  return obras[codigobra].orcamento;
+  codigobra++;
 }
 
 int gestor ()
 {
+  fflush(stdin);
   while(OPCAO != 0){
     printf("\nO que deseja fazer ?\n"
     "\nDigite a opcao correspondente:"
@@ -86,7 +90,8 @@ int gestor ()
     "\n\n0 - Encerrar"
     "\nOpcao: ");
     scanf("%d", &OPCAO);
-
+    
+    fflush(stdin);
     switch (OPCAO)
     {
     case 1:
@@ -124,10 +129,10 @@ int gestor ()
       printf("\nVoce nao selecionou nenhuma opcao, atendimento encerrado.");
       OPCAO = 0;
     
-    return 0; //qnt_obra, ORCAMENTO;
+    //qnt_obra, ORCAMENTO;
     }
   }
-
+  return 0;
 }
 
 int mestre()
@@ -141,7 +146,7 @@ int mestre()
     "\n4 - Solicitar a contratação de um funcionário.");
     scanf("%d", &OPCAO);
   }
-
+  return 0;
 }
 
 int engenheiro()
@@ -155,8 +160,9 @@ int engenheiro()
     "\n4 - Selecionar fornecedor e finalizar compra."
     "\n5 - Adicionar mensagem ao histórico da obra.");
     scanf("%d", &OPCAO);
-  }
 
+  }
+  return 0;
 }
 
 int fornecedor()
@@ -168,6 +174,7 @@ int fornecedor()
     "\n2 - Adicionar valor de três fornecedores.");
     scanf("%d", &OPCAO);
   }    
+  return 0;
 
 }
 
@@ -204,4 +211,5 @@ int main()
   printf("\n\nFIM");
 
   return 0;
+}
 }
