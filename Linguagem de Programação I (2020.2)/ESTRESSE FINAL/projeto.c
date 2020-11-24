@@ -3,8 +3,14 @@
 #include <string.h>
 #include <ctype.h>
 
+struct obra
+{
+    char nome[20];
+    double orcamento;
+}obras[10];
+
 int logado = 0;
-int qnt_obra, OPCAO, i;
+int qnt_obra, OPCAO = 1, i, codigobra=1;
 double ORCAMENTO, CAIXA, DESPESAS;
 char historico[999][140], mensagens[999][140];
 
@@ -47,31 +53,65 @@ void login()
     return logado;
 }
 
+char nomeobra()
+{   
+    fflush(stdin);
+    printf("\n\nPor favor digite o nome da obra: \n");
+    fgets(obras[codigobra].nome, 20, stdin);
+
+    return obras[codigobra].nome[19];
+}
+
+double orcamentoobra(){
+
+    printf("\n\nAgora informe o orcamento disponivel para esta nova obra" 
+    "\nR$: ");
+    scanf("%lf", &obras[codigobra].orcamento);
+
+    system("cls");
+    printf("\nUma nova obra foi adicionada\n");
+    
+    return obras[codigobra].orcamento;
+    codigobra++;
+}
+
 int gestor ()
 {
   while(OPCAO != 0){
     printf("\nO que deseja fazer ?\n"
-    "\nDigite a opção correspondente:"
+    "\nDigite a opcao correspondente:"
     "\n1 - Solicitar Nova Obra."
     "\n2 - Verificar custo da obra."
-    "\n3 - Consultar histórico da obra."
-    "\n0 - SAIR"
-    "\nOPCAO: ");
+    "\n3 - Consultar historico da obra."
+    "\n\n0 - Encerrar"
+    "\nOpcao: ");
     scanf("%d", &OPCAO);
 
     switch (OPCAO)
     {
     case 1:
-      printf("\n\nUma nova obra foi adicionada, por favor, digite o orçamento disponivel para esta nova obra" 
-      "\nR$: ");
-      scanf("%lf", &ORCAMENTO);
-      qnt_obra = 1;
+      nomeobra();
+      orcamentoobra();
       break;
 
     case 2:
-      printf("\n\nO orçamento inicial para esta obra foi de R$ %.2lf\n", ORCAMENTO);
-      printf("\nAte este momento foram gastos R$ %.2lf\n", DESPESAS);
-      printf("\nAinda restam R$ %.2lf\n", CAIXA);
+      printf("\nSelecione uma das obras" "\nEsta sao as obras em andamento:\n");
+
+      for(i=1; i<10; i++)
+      {   
+        if(obras[i].orcamento == 0) { i = 50; }
+
+        else{
+        printf("\nOpcao: %d", i);
+        printf("\n%s", obras[i].nome);
+        printf("Orcamento Inicial -> R$ %.2lf \n\n", obras[i].orcamento);
+        }
+      }
+
+      printf("Digite a OPCAO desejada: ");
+      scanf("%d", &OPCAO);
+
+      printf("\n\nO orçamento inicial para esta obra foi de R$ %.2lf\n", obras[OPCAO].orcamento);
       break;
     
     case  3:
@@ -84,7 +124,7 @@ int gestor ()
       printf("\nVoce nao selecionou nenhuma opcao, atendimento encerrado.");
       OPCAO = 0;
     
-    return qnt_obra, ORCAMENTO;
+    return 0; //qnt_obra, ORCAMENTO;
     }
   }
 
