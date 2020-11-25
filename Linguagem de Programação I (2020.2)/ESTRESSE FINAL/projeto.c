@@ -5,8 +5,8 @@
 
 struct obra
 {
-    char nome[20];
-    double orcamento;
+  char nome[20];
+  double orcamento;
 }obras[10];
 
 struct produto
@@ -164,9 +164,10 @@ int quantprod()
   scanf("%d", &listacompras[codigoprod].quantprod);
   system("cls");
   printf("Produto adicinado a lista.");
-   
-  return listacompras[codigoprod].quantprod;
   codigoprod++;
+
+  return listacompras[codigoprod].quantprod, codigoprod;
+  
 }
 
 int mestre()
@@ -194,6 +195,18 @@ int mestre()
       break;
     
     case  3:
+      system("cls");
+      printf("\n==LISTA==");
+      for(i=1; i<10; i++)
+      {   
+        if(listacompras[i].quantprod == 0) { i = 50; }
+
+        else{
+        printf("\nCompra: %d", i);
+        printf("\n%s", listacompras[i].nomeprod);
+        printf("Quantidade -> %d \n\n", listacompras[i].quantprod);
+      }
+      }
       break;
 
     case 0:
