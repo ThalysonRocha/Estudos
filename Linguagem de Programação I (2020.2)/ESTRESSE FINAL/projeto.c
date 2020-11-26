@@ -13,11 +13,11 @@ struct produto
 {
   int quantprod;
   char nomeprod[20];
-} listacompras[10];
+} listacompras[10], listacompraok[10];
 
 int logado = 0;
-int qnt_obra, OPCAO = 1, i, codigobra=1, codigoprod = 1;
-double ORCAMENTO, CAIXA, DESPESAS;
+int OPCAO = 1, codigobra=1, codigoprod = 1,  i;
+double ORCAMENTO;
 char historico[999][140], mensagens[999][140], nome[20];
 
 //FUN«’ES GERAIS
@@ -173,6 +173,7 @@ int quantprod()
 int mestre()
 {
   printf("\nSeja bem vindo MESTRE DE OBRAS !");
+  
   while(OPCAO != 0){
     printf("\nO que deseja fazer ?\n"
     "\nDigite a opcao correspondente:"
@@ -229,7 +230,7 @@ int engenheiro()
     "\n2 - Contratar funcion√°rios."
     "\n3 - Verificar Custa da obra."
     "\n4 - Selecionar fornecedor e finalizar compra."
-    "\n5 - Adicionar mensagem ao hist√≥rico da obra.");
+    "\n5 - Adicionar mensagem ao historico da obra.");
     scanf("%d", &OPCAO);
 
     fflush(stdin);
@@ -253,6 +254,7 @@ int engenheiro()
   return 0;
 }
 
+//FUN«’ES PARA O FORNECEDOR
 int fornecedor()
 {
   printf("\nSeja bem vindo FORNECEDOR !");
@@ -290,6 +292,7 @@ int main()
   printf("===PROGRAMA DE LOGIN===\n");
 
   do{
+  OPCAO = 8;
   login();
   system("cls");
   switch (logado)
