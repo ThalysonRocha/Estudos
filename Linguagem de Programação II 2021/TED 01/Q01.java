@@ -4,18 +4,19 @@ public class Q01 {
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 		
+		//Declaração de variavel.
 		double x;
 		
-		System.out.println("====Calculadora de massa lunar====\n");
+		System.out.println("====Calculadora de peso lunar====\n");
 		
 		System.out.println("Digite seu peso em Kilogramas: ");
 		x = input.nextDouble();
 		
-		x = x/9.8;
-		x = x * 1.666;
+		//Calculando resultados
+		x = x/9.8; //Transformando o peso na terra em massa
+		x = x * 1.666; //Transformando a massa na estimativa de peso na lua.
 		
-		System.out.printf("\nSua massa na lua � %.3f Kg", x);
+		System.out.printf("\nSua massa na lua é %.3f Kg", x);
 			
-		
 	}
 }
